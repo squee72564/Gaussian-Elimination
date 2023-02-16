@@ -32,31 +32,26 @@ void gaussianElim(const int n, std::vector<std::vector<float>>& mat) {
 		s[i] = float(smax);
 	}
 
-	std::cout << "Initialized index and max vector\n";
-
 	for (k = 0; k < n-1; k++ ) {
-		std::cout << "K: " << k << "\n";
 		rmax = 0;
 		for (i = k; i < n; i++) {
-			r = mat[l[i]][k] / s[l[i]];
+			r = std::abs(mat[l[i]][k] / s[l[i]]);
 			if (r > rmax) {
 				rmax = r;
 				j = i;
 			}	
 		}
 		
-		int temp = l[i];
-		l[i] = l[k];
+		int temp = l[i-1];
+		l[i-1] = l[k];
 		l[k] = temp;
 
 		for (i = k+1; i < n; i++) {
-			xmult = mat[l[i]][k] / mat[l[k]][k];
+			xmult = float(mat[l[i]][k] / mat[l[k]][k]);
 			mat[l[i]][k] = xmult;
 			for (j = k+1; j < n; j++) {
-				mat[l[i]][j] = mat[l[i]][j]-xmult*mat[l[k]][j];
+				mat[l[i]][j] = mat[l[i]][j]-(xmult*mat[l[k]][j]);
 			}
 		}
 	}
-
-	printMat(mat);
 }
