@@ -42,8 +42,8 @@ void gaussianElim(const int n, std::vector<std::vector<float>>& mat) {
 			}	
 		}
 		
-		int temp = l[i-1];
-		l[i-1] = l[k];
+		int temp = l[j];
+		l[j] = l[k];
 		l[k] = temp;
 
 		for (i = k+1; i < n; i++) {
@@ -54,4 +54,5 @@ void gaussianElim(const int n, std::vector<std::vector<float>>& mat) {
 			}
 		}
 	}
+	printMat(mat);
 }
