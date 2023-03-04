@@ -34,7 +34,7 @@ void printMat(const std::vector<std::vector<float>> &mat) {
 
 void printVec(const std::vector<float> &vec) {
 	std::cout << "\n";
-	for (int i = 0; i < vec.size(); i++) {
+	for (std::size_t i = 0; i < vec.size(); i++) {
 		std::cout << vec[i] << "\t";
 	}
 	std::cout << "\n";
